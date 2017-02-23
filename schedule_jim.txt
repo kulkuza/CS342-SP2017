@@ -1,0 +1,6 @@
+Jim Mei
+
+Schedule and deliverable:
+	- Template for abstract class for the array Array.java -- Mon 02/27 by 9pm (estimate: 2 hrs)
+	- Template the abstract functions for the array -- Thur 03/02 by 9pm (estimate: 4 hr)
+	- Template the abstract sort functions for the array -- Mon 03/06 by 9pm (estimate: 4 hr)

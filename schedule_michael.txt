@@ -1,0 +1,8 @@
+Michael Mei
+
+Schedule and deliverable:
+	-Template for abstract class for sorting algorithms SortAlgorithm.java -- Mon 02/27 by 9pm (estimate: 2 hrs)
+	-Implementing the functions for the abstract class SortAlgorithm.java -- Fri 03/03 by 9pm (estimate: 4 hr)
+	-Implement BubbleSort class from the abstract class BubbleSort.java -- Mon 03/06 by 9pm (estimate: 3 hrs)
+	-Template for visual sort array class VisualSortArray -- Wed 03/08 (estimate: 2 hrs)
+	-Implement methods for VisualSortArray -- Fri 03/10 (estimate: 4 hrs)

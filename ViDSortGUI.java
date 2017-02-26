@@ -1,13 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * // Usage:
+ * ViDSortGUI gui = new ViDSortGUI("ViDSort");
+ *
+ * ...
+ * 
+ * gui.updateArray(arr); // draw representation of array
  */
 
-/**
- *
- * @author luis
- */
 public class ViDSortGUI {
     private Window window;
     private UserControlMenu userControlMenu = new UserControlMenu();

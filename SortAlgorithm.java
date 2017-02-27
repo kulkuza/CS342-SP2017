@@ -1,4 +1,4 @@
-public abstract SortAlgorithm
+public abstract class SortAlgorithm 
 {
 
 

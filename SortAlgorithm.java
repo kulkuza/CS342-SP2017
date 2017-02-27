@@ -1,7 +1,7 @@
 public abstract class SortAlgorithm {
   private String name;  //name of sorting algorithm
   
-  public AbstractSortAlgorithm(String name) {
+  public SortAlgorithm(String name) {
     this.name = name;
   }
   

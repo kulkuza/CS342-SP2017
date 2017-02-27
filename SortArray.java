@@ -1,8 +1,8 @@
-public abstract class Array
+public abstract class SortArray
 {
     private int size;
 
-    public Array();
+    public SortArray();
 
     public int getSize() {
         return size;

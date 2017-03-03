@@ -4,7 +4,7 @@
  *
  * ...
  * 
- * gui.updateArray(arr); // draw representation of array
+ * gui.updateVisualArray(arr); // draw representation of array
  */
 
 public class ViDSortGUI {
@@ -12,19 +12,19 @@ public class ViDSortGUI {
 
     private Window window;
     private UserControlMenu userControlMenu = new UserControlMenu();
-    private ArrayCanvas arrayCanvas = new ArrayCanvas();
+    private VisualArrayCanvas visualArrayCanvas = new VisualArrayCanvas();
     
     private ViDSortGUI(String windowTitle) {
         window = new Window(windowTitle);
         window.addLeftPanel(userControlMenu);
-        window.addRightPanel(arrayCanvas);
+        window.addRightPanel(visualArrayCanvas);
         window.revalidate();
     }
         
     private ViDSortGUI(int windowWidth, int windowHeight, String windowTitle) {
         window = new Window(windowWidth, windowHeight, windowTitle);
         window.addLeftPanel(userControlMenu);
-        window.addRightPanel(arrayCanvas);
+        window.addRightPanel(visualArrayCanvas);
         window.revalidate();
     }
 
@@ -44,7 +44,7 @@ public class ViDSortGUI {
 		return instance;
 	}
     
-    public void updateArray(int[] arr) {
-        arrayCanvas.drawArray(arr);
+    public void updateVisualArray(int[] arr) {
+        visualArrayCanvas.drawArray(arr);
     }
 }

@@ -6,6 +6,15 @@ import javax.swing.JPanel;
 
 public class Window extends JFrame {
     JPanel windowContent;
+
+	public Window(String title) {
+		setTitle(title);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(1000, 500);
+        setLocationRelativeTo(null);
+        setLayout(new GridBagLayout());
+        setVisible(true);
+	}
     
     public Window(int width, int height, String title) {
         setTitle(title);

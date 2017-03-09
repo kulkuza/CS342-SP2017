@@ -15,20 +15,20 @@ import javax.swing.JPanel;
 
 public class UserControlMenu extends JPanel {
     private final String[] algorithmNames = {"Bubble Sort", "Insertion Sort", "Merge Sort"};
-    private JComboBox leftAlgorithmComboBox;
-    private JComboBox rightAlgorithmComboBox;
+    private JComboBox<String> leftAlgorithmComboBox;
+    private JComboBox<String> rightAlgorithmComboBox;
     
     private JCheckBox compareCheckBox;
     
     private final String[] arraySizes = {"5", "10", "15"};
-    private JComboBox sizeComboBox;
+    private JComboBox<String> sizeComboBox;
     
     private JButton toggleStartStopButton;
     
     public UserControlMenu() {
-        leftAlgorithmComboBox = new JComboBox(algorithmNames);
+        leftAlgorithmComboBox = new JComboBox<>(algorithmNames);
         leftAlgorithmComboBox.setSelectedIndex(0);
-        rightAlgorithmComboBox = new JComboBox(algorithmNames);
+        rightAlgorithmComboBox = new JComboBox<>(algorithmNames);
         rightAlgorithmComboBox.setSelectedIndex(0);
         
         compareCheckBox = new JCheckBox("Compare");
@@ -39,7 +39,7 @@ public class UserControlMenu extends JPanel {
             }
         });
         
-        sizeComboBox = new JComboBox(arraySizes);
+        sizeComboBox = new JComboBox<>(arraySizes);
         rightAlgorithmComboBox.setSelectedIndex(0);
         
         toggleStartStopButton = new JButton("START");

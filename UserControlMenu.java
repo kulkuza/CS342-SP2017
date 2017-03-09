@@ -13,7 +13,7 @@ public class UserControlMenu extends JPanel {
         int width = menuDimensions.width;
         int height = menuDimensions.height;
         
-        JButton toggleStartStopButton = new JButton("START");;
+        JButton toggleStartStopButton = new JButton("START");
         
         setLayout(new GridBagLayout());
         setBackground(new Color(220, 220, 220));

@@ -5,6 +5,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 public class UserControlMenu extends JPanel {
@@ -12,6 +14,16 @@ public class UserControlMenu extends JPanel {
         Dimension menuDimensions = getSize();
         int width = menuDimensions.width;
         int height = menuDimensions.height;
+        
+        String[] algorithmNames = {"Bubble Sort", "Insertion Sort", "Merge Sort"};
+        JComboBox sortingAlgorithmComboBox = new JComboBox(algorithmNames);
+        sortingAlgorithmComboBox.setSelectedIndex(0);
+        
+        JCheckBox compareCheckBox = new JCheckBox("Compare");
+        
+        String[] arraySizes = {"5", "10", "15"};
+        JComboBox sizeComboBox = new JComboBox(arraySizes);
+        sortingAlgorithmComboBox.setSelectedIndex(0);
         
         JButton toggleStartStopButton = new JButton("START");
         
@@ -21,7 +33,14 @@ public class UserControlMenu extends JPanel {
         
         GridBagConstraints gridConstraints = getDefaultGridConstraints();
         
-        gridConstraints.gridy = 4;
+        gridConstraints.gridy = 1;
+        add(sortingAlgorithmComboBox, gridConstraints);
+        gridConstraints.gridy = 2;
+        add(compareCheckBox, gridConstraints);
+        gridConstraints.gridy = 3;
+        add(sizeComboBox, gridConstraints);
+        gridConstraints.gridy = 5;
+        gridConstraints.weighty = 10;
         add(toggleStartStopButton, gridConstraints);
     }
     

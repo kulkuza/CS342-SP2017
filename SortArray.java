@@ -1,11 +1,23 @@
 public abstract class SortArray
 {
+	private SortAlgorithm algorithm;
     private int size;
-    private int[] array;
+    public int[] array;
 
     public SortArray() {
     	size = 0;
     	array = null;
+    }
+
+    public SortArray(int size, SortAlgorithm algorithm) {
+    	this.size = size;
+    	array = new int[size];
+
+    	for(int i = 0; i < this.size; i++) {
+    		array[i] = (int)(Math.random() * this.size);
+    	}
+
+    	this.algorithm = algorithm;
     }
 
     public int getSize() {
@@ -35,6 +47,5 @@ public abstract class SortArray
     		return false;
     	}
     }
-
 
 }

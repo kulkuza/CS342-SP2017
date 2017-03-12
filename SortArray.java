@@ -26,6 +26,11 @@ public abstract class SortArray
 
     public void setSize(int size) {
         this.size = size;
+		array = new int[size];
+		
+		for(int i = 0; i < this.size; i++) {
+    		array[i] = (int)(Math.random() * this.size);
+    	}
     }
 
     public int compare(int i, int j) {
@@ -47,5 +52,14 @@ public abstract class SortArray
     		return false;
     	}
     }
+	
+	public int getElem(int i){
+		if (i > size - 1)
+			return array[size -1];
+		else if(i < 0)
+			return array[0];
+		else
+			return array[i];
+	}	
 
 }

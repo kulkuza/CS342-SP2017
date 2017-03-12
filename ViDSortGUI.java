@@ -1,4 +1,3 @@
-
 import javax.swing.JPanel;
 
 /*
@@ -19,6 +18,10 @@ public class ViDSortGUI {
     private VisualArrayCanvas rightVisualArrayCanvas = new VisualArrayCanvas();
     
     private boolean runningSort = false;
+	
+	private String selectedLeftAlgorithm;
+	private String selectedRightAlgorithm;
+	private int selectedSize;
     
     public enum Mode {
         SINGLE_ALGORITHM_MODE,
@@ -84,6 +87,30 @@ public class ViDSortGUI {
     public boolean isRunningSort() {
         return runningSort;
     }
+
+	public String getSelectedLeftAlgorithm() {
+		return selectedLeftAlgorithm;
+	}
+
+	public void setSelectedLeftAlgorithm(String algorithm) {
+		selectedLeftAlgorithm = algorithm;
+	}
+
+	public String getSelectedRightAlgorithm() {
+		return selectedRightAlgorithm;
+	}
+
+	public void setSelectedRightAlgorithm(String algorithm) {
+		selectedRightAlgorithm = algorithm;
+	}
+
+	public int getSelectedSize() {
+		return selectedSize;
+	}
+
+	public void setSelectedSize(int size) {
+		selectedSize = size;
+	}
     
     public void update(int[] arr) {
         rightVisualArrayCanvas.drawArray(arr);

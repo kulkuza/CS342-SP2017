@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -28,8 +27,15 @@ public class UserControlMenu extends JPanel {
     public UserControlMenu() {
         leftAlgorithmComboBox = new JComboBox<>(algorithmNames);
         leftAlgorithmComboBox.setSelectedIndex(0);
+		leftAlgorithmComboBox.addActionListener(new ActionListener() {
+			ViDSortGUI.getInstance().setSelectedLeftAlgorithm(e.getSource().getSelectedItem());
+		});
+
         rightAlgorithmComboBox = new JComboBox<>(algorithmNames);
         rightAlgorithmComboBox.setSelectedIndex(0);
+		rightAlgorithmComboBox.addActionListener(new ActionListener() {
+			ViDSortGUI.getInstance().setSelectedRightAlgorithm(e.getSource().getSelectedItem());
+		});
         
         compareCheckBox = new JCheckBox("Compare");
         compareCheckBox.addItemListener(new ItemListener() {
@@ -40,7 +46,11 @@ public class UserControlMenu extends JPanel {
         });
         
         sizeComboBox = new JComboBox<>(arraySizes);
-        rightAlgorithmComboBox.setSelectedIndex(0);
+        sizeComboBox.setSelectedIndex(0);
+		sizeComboBox.addActionListener(new ActionListener() {
+			int size = Integer.valueOf(e.getSource().getSelectedItem());
+			ViDSortGUI.getInstance().setSelectedSize(size);
+		});
         
         toggleStartStopButton = new JButton("START");
         toggleStartStopButton.addActionListener(new ActionListener() {

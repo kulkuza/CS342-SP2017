@@ -13,30 +13,37 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 public class UserControlMenu extends JPanel {
+
     private final String[] algorithmNames = {"Bubble Sort", "Insertion Sort", "Merge Sort"};
     private JComboBox<String> leftAlgorithmComboBox;
     private JComboBox<String> rightAlgorithmComboBox;
-    
+
     private JCheckBox compareCheckBox;
-    
+
     private final String[] arraySizes = {"5", "10", "15"};
     private JComboBox<String> sizeComboBox;
-    
+
     private JButton toggleStartStopButton;
-    
+
     public UserControlMenu() {
         leftAlgorithmComboBox = new JComboBox<>(algorithmNames);
         leftAlgorithmComboBox.setSelectedIndex(0);
-		leftAlgorithmComboBox.addActionListener(new ActionListener() {
-			ViDSortGUI.getInstance().setSelectedLeftAlgorithm(e.getSource().getSelectedItem());
-		});
+        leftAlgorithmComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViDSortGUI.getInstance().setSelectedLeftAlgorithm(e.getSource().toString());
+            }
+        });
 
         rightAlgorithmComboBox = new JComboBox<>(algorithmNames);
         rightAlgorithmComboBox.setSelectedIndex(0);
-		rightAlgorithmComboBox.addActionListener(new ActionListener() {
-			ViDSortGUI.getInstance().setSelectedRightAlgorithm(e.getSource().getSelectedItem());
-		});
-        
+        rightAlgorithmComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViDSortGUI.getInstance().setSelectedRightAlgorithm(e.getSource().toString());
+            }
+        });
+
         compareCheckBox = new JCheckBox("Compare");
         compareCheckBox.addItemListener(new ItemListener() {
             @Override
@@ -44,31 +51,35 @@ public class UserControlMenu extends JPanel {
                 ViDSortGUI.getInstance().toggleMode();
             }
         });
-        
+
         sizeComboBox = new JComboBox<>(arraySizes);
         sizeComboBox.setSelectedIndex(0);
-		sizeComboBox.addActionListener(new ActionListener() {
-			int size = Integer.valueOf(e.getSource().getSelectedItem());
-			ViDSortGUI.getInstance().setSelectedSize(size);
-		});
-        
+        sizeComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int size = Integer.valueOf(e.getSource().toString());
+                ViDSortGUI.getInstance().setSelectedSize(size);
+            }
+        });
+
         toggleStartStopButton = new JButton("START");
         toggleStartStopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("START"))
+                if (e.getActionCommand().equals("START")) {
                     toggleStartStopButton.setText("STOP");
-                else
+                } else {
                     toggleStartStopButton.setText("START");
-                
+                }
+
                 ViDSortGUI.getInstance().toggleRunningSort();
             }
         });
-        
+
         setLayout(new GridBagLayout());
         setBackground(new Color(220, 220, 220));
         setBorder(BorderFactory.createMatteBorder(0, 1, 0, 1, Color.black));
-        
+
         GridBagConstraints gridConstraints = getDefaultGridConstraints();
         gridConstraints.gridy = 1;
         add(rightAlgorithmComboBox, gridConstraints);
@@ -80,11 +91,11 @@ public class UserControlMenu extends JPanel {
         gridConstraints.weighty = 10;
         add(toggleStartStopButton, gridConstraints);
     }
-    
+
     public void resetMenuComponents() {
         ViDSortGUI.Mode mode = ViDSortGUI.getInstance().getMode();
         GridBagConstraints gridConstraints = getDefaultGridConstraints();
-        
+
         if (mode == ViDSortGUI.Mode.SINGLE_ALGORITHM_MODE) {
             removeComboBox(rightAlgorithmComboBox);
             gridConstraints.gridy = 1;
@@ -98,10 +109,10 @@ public class UserControlMenu extends JPanel {
             add(rightAlgorithmComboBox, gridConstraints);
         }
     }
-    
+
     private GridBagConstraints getDefaultGridConstraints() {
         GridBagConstraints gridConstraints = new GridBagConstraints();
-        
+
         gridConstraints.gridx = 0;
         gridConstraints.gridy = 0;
         gridConstraints.gridwidth = 1;
@@ -111,19 +122,21 @@ public class UserControlMenu extends JPanel {
         gridConstraints.insets = new Insets(5, 5, 5, 5);
         gridConstraints.anchor = GridBagConstraints.CENTER;
         gridConstraints.fill = GridBagConstraints.BOTH;
-        
+
         return gridConstraints;
     }
-    
+
     public void toggleStartStopText() {
-        if (toggleStartStopButton.getText() == "START")
+        if (toggleStartStopButton.getText() == "START") {
             toggleStartStopButton.setText("STOP");
-        else
+        } else {
             toggleStartStopButton.setText("START");
+        }
     }
-    
+
     private void removeComboBox(JComboBox comboBox) {
-        if (comboBox.getParent() == this)
+        if (comboBox.getParent() == this) {
             remove(comboBox);
+        }
     }
 }

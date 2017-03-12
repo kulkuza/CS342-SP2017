@@ -2,7 +2,7 @@
 import javax.swing.JPanel;
 
 /*
- * // Usage:
+ * Usage:
  * ViDSortGUI gui = ViDSortGUI.getInstance("Window Title Here");
  *
  * ...
@@ -27,33 +27,15 @@ public class ViDSortGUI {
     
     private Mode mode = Mode.SINGLE_ALGORITHM_MODE;
     
-    private ViDSortGUI(String windowTitle) {
-        this(1000, 500, windowTitle);
+    private ViDSortGUI() {
+		window = new Window(1000, 500, "ViDSort");
+
+		setupPanels();
     }
         
-    private ViDSortGUI(int windowWidth, int windowHeight, String windowTitle) {
-        window = new Window(windowWidth, windowHeight, windowTitle);
-        
-        setupPanels();
-    }
-    
     public static ViDSortGUI getInstance() {
         if (instance == null)
-            instance = new ViDSortGUI("Default Title");
-        
-        return instance;
-    }
-    
-    public static ViDSortGUI getInstance(String windowTitle) {
-        if (instance == null)
-            instance = new ViDSortGUI(windowTitle);
-        
-        return instance;
-    }
-    
-    public static ViDSortGUI getInstance(int windowWidth, int windowHeight, String windowTitle) {
-        if (instance == null)
-            instance = new ViDSortGUI(windowWidth, windowHeight, windowTitle);
+            instance = new ViDSortGUI();
         
         return instance;
     }

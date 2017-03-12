@@ -9,7 +9,7 @@ public abstract class SortArray
     	array = null;
     }
 
-    public SortArray(int size, SortAlgorithm algorithm) {
+    public SortArray(int size, String algorithm) {
     	this.size = size;
     	array = new int[size];
 
@@ -17,7 +17,7 @@ public abstract class SortArray
     		array[i] = (int)(Math.random() * this.size);
     	}
 
-    	this.algorithm = algorithm;
+    	this.algorithm = selectAlgorithm(algorithm);
     }
 
     public int getSize() {
@@ -51,6 +51,21 @@ public abstract class SortArray
     	else {
     		return false;
     	}
+    }
+
+    public SortAlgorithm selectAlgorithm(String algorithm) {
+    	if (algorithm.equals("BubbleSort"))
+    		return new BubbleSort();
+    	else if (algorithm.equals("InsertionSort"))
+    		return new InsertionSort();
+    	else if (algorithm.equals("SelectionSort"))
+    		return new SelectionSort();
+    	else
+    		return null;
+    }
+
+    public void sort() {
+    	algorithm.sort(this);
     }
 	
 	public int getElem(int i){

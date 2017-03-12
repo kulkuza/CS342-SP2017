@@ -34,15 +34,14 @@ public class CS342VIDSort
 		 *	SortArray/SortAlgorithm implementation test
 		 */
 
-		SortAlgorithm algorithm = new BubbleSort();
-    	SortArray testVisualArray = new VisualArray(50, algorithm);
+    	SortArray testVisualArray = new VisualArray(50, "BubbleSort");
 
     	//prints array(unsorted)
     	for (int i = 0; i < testVisualArray.getSize(); i++) {
     		System.out.println(testVisualArray.array[i]);
     	}
 
-    	algorithm.sort(testVisualArray);
+    	testVisualArray.sort();
 
     	//prints array(sorted)
     	for (int i = 0; i < testVisualArray.getSize(); i++) {

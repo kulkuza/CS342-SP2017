@@ -33,13 +33,13 @@ public class QuickSort externds SortAlgorithm{
 		//or if the element they're on is on the right of the pivot and <pivot
 		//or if the element is on the left of the pivot and it is >pivot
 		while (i <= j){
-			while (array[i] < pivot)
+			while (array.getElem(i) < pivot)
 				i++;
-			while(array[j] > pivot)
+			while(array.getElem(j) > pivot)
 				j--;
 			
 			if (i <= j){
-				array.compareAndSwap(i,j);
+				array.swap(i,j);
 				i++;
 				j--;
 			}

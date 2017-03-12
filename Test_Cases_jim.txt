@@ -1,0 +1,6 @@
+Test Cases
+1) Changing sort method to Bubble sort should sort the array bubble sort.
+
+2) Changing sort method to Merge sort should sort the array with merge sort.
+
+3) Changing sort method to Quick sort should sort the array with quick sort.

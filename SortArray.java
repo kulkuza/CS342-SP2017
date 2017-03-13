@@ -92,6 +92,16 @@ public abstract class SortArray
 			return array[0];
 		else
 			return array[i];
-	}	
+	}
+
+    public void setElem(int index, int newElem){
+        if (index < 0 || index > size - 1)
+            return;
+        else
+        {
+            array[index] = newElem;
+            return;
+        }
+    }
 
 }

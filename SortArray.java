@@ -46,6 +46,7 @@ public abstract class SortArray
     public boolean compareAndSwap(int i, int j) {
     	if (compare(i, j) > 0) {
     		swap(i, j);
+    		ViDSortGUI.getInstance().update(array);
     		return true;
     	}
     	else {

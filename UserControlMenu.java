@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 public class UserControlMenu extends JPanel {
 
-    private final String[] algorithmNames = {"BubbleSort", "InsertionSort", "MergeSort"};
+    private final String[] algorithmNames = {"BubbleSort", "InsertionSort", "MergeSort", "SelectionSort", "QuickSort"};
     private JComboBox<String> leftAlgorithmComboBox;
     private JComboBox<String> rightAlgorithmComboBox;
 

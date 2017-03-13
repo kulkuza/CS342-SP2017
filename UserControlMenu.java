@@ -69,12 +69,6 @@ public class UserControlMenu extends JPanel {
         toggleStartStopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("START")) {
-                    toggleStartStopButton.setText("STOP");
-                } else {
-                    toggleStartStopButton.setText("START");
-                }
-
                 ViDSortGUI.getInstance().toggleRunningSort();
             }
         });
@@ -130,7 +124,7 @@ public class UserControlMenu extends JPanel {
     }
 
     public void toggleStartStopText() {
-        if (toggleStartStopButton.getText() == "START") {
+        if (toggleStartStopButton.getText().equals("START")) {
             toggleStartStopButton.setText("STOP");
         } else {
             toggleStartStopButton.setText("START");

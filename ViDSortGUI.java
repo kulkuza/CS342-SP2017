@@ -85,6 +85,7 @@ public class ViDSortGUI {
 
     public void toggleRunningSort() {
         runningSort = !runningSort;
+        userControlMenu.toggleStartStopText();
     }
 
     public boolean isRunningSort() {

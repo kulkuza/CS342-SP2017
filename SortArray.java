@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public abstract class SortArray
 {
 	private SortAlgorithm algorithm;
@@ -46,8 +48,14 @@ public abstract class SortArray
     public boolean compareAndSwap(int i, int j) {
     	if (compare(i, j) > 0) {
     		swap(i, j);
+    		System.out.println("Updating GUI");
     		ViDSortGUI gui = ViDSortGUI.getInstance();
     		gui.update(array);
+    		try {
+    			TimeUnit.MILLISECONDS.sleep(300);
+    		} catch (InterruptedException e) {
+    			System.out.println("Delay exception");
+    		}
     		return true;
     	}
     	else {
@@ -56,8 +64,10 @@ public abstract class SortArray
     }
 
     public SortAlgorithm selectAlgorithm(String algorithm) {
-    	if (algorithm.equals("BubbleSort"))
+    	if (algorithm.equals("BubbleSort")) {
+    		System.out.println("Algorithm is BubbleSort");
     		return new BubbleSort();
+    	}
     	else if (algorithm.equals("InsertionSort"))
     		return new InsertionSort();
     	else if (algorithm.equals("SelectionSort"))
@@ -67,7 +77,10 @@ public abstract class SortArray
     }
 
     public void sort() {
+    	System.out.println("Array is sorting");
     	algorithm.sort(this);
+    	System.out.println("Array is finished sorting");
+
     }
 	
 	public int getElem(int i){

@@ -20,7 +20,7 @@ public class UserControlMenu extends JPanel {
 
     private JCheckBox compareCheckBox;
 
-    private final String[] arraySizes = {"5", "10", "15"};
+    private final String[] arraySizes = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50"};
     private JComboBox<String> sizeComboBox;
 
     private JButton toggleStartStopButton;

@@ -96,6 +96,7 @@ public class ViDSortGUI {
     }
 
     public void setSelectedLeftAlgorithm(String algorithm) {
+        System.out.println("Setting left algorithm to: " + algorithm);
         selectedLeftAlgorithm = algorithm;
     }
 
@@ -104,6 +105,7 @@ public class ViDSortGUI {
     }
 
     public void setSelectedRightAlgorithm(String algorithm) {
+        System.out.println("Setting right algorithm to: " + algorithm);
         selectedRightAlgorithm = algorithm;
     }
 
@@ -112,6 +114,7 @@ public class ViDSortGUI {
     }
 
     public void setSelectedSize(int size) {
+        System.out.println("Setting array size to: " + String.valueOf(size));
         selectedSize = size;
     }
 

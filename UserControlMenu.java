@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 public class UserControlMenu extends JPanel {
 
-    private final String[] algorithmNames = {"Bubble Sort", "Insertion Sort", "Merge Sort"};
+    private final String[] algorithmNames = {"BubbleSort", "InsertionSort", "MergeSort"};
     private JComboBox<String> leftAlgorithmComboBox;
     private JComboBox<String> rightAlgorithmComboBox;
 
@@ -31,7 +31,8 @@ public class UserControlMenu extends JPanel {
         leftAlgorithmComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViDSortGUI.getInstance().setSelectedLeftAlgorithm(e.getSource().toString());
+                JComboBox cb = (JComboBox)e.getSource();
+                ViDSortGUI.getInstance().setSelectedLeftAlgorithm((String)cb.getSelectedItem());
             }
         });
 
@@ -40,7 +41,8 @@ public class UserControlMenu extends JPanel {
         rightAlgorithmComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViDSortGUI.getInstance().setSelectedRightAlgorithm(e.getSource().toString());
+                JComboBox cb = (JComboBox)e.getSource();
+                ViDSortGUI.getInstance().setSelectedRightAlgorithm((String)cb.getSelectedItem());
             }
         });
 
@@ -57,7 +59,8 @@ public class UserControlMenu extends JPanel {
         sizeComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int size = Integer.valueOf(e.getSource().toString());
+                JComboBox cb = (JComboBox)e.getSource();
+                int size = Integer.parseInt((String)cb.getSelectedItem());
                 ViDSortGUI.getInstance().setSelectedSize(size);
             }
         });

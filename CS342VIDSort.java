@@ -2,6 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
+
 /*
  *	TODO: -fully implement textbox for array creation 
  *			and dropdown menu for algorithm selection
@@ -22,30 +23,21 @@ public class CS342VIDSort
 {
 	public static void main (String[] args)
 	{
-		/*
-		 * GUI usage test
-		 */
-		int[] testArray = {37, 6, 21, 17, 30, 2, 14, 40, 9, 32, 39, 15};
 		ViDSortGUI gui = ViDSortGUI.getInstance();
-		gui.update(testArray); // display the array
-
-
-		/*
-		 *	SortArray/SortAlgorithm implementation test
-		 */
-
-    	SortArray testVisualArray = new VisualArray(50, "BubbleSort");
-
-    	//prints array(unsorted)
-    	for (int i = 0; i < testVisualArray.getSize(); i++) {
-    		System.out.println(testVisualArray.array[i]);
-    	}
-
-    	testVisualArray.sort();
-
-    	//prints array(sorted)
-    	for (int i = 0; i < testVisualArray.getSize(); i++) {
-    		System.out.println(testVisualArray.array[i]);
-    	}
+        
+        Timer tt = new Timer();
+        tt.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (gui.isRunningSort()) {
+                    int size = gui.getSelectedSize();
+                    SortArray testVisualArray = new VisualArray(size, gui.getSelectedRightAlgorithm());
+                    
+                    testVisualArray.sort();
+                    
+                    gui.toggleRunningSort();
+                }
+            }
+        }, 0, 100);
 	}
 }

@@ -72,6 +72,8 @@ public abstract class SortArray
     		return new InsertionSort();
     	else if (algorithm.equals("SelectionSort"))
     		return new SelectionSort();
+        else if (algorithm.equals("QuickSort"))
+            return new QuickSort();
     	else
     		return null;
     }

@@ -1,6 +1,6 @@
 Test Cases
-1) Changing sort method to Bubble sort should sort the array bubble sort.
+1) Changing size of the array should create anew arrayof the new size with new elements.
 
-2) Changing sort method to Merge sort should sort the array with merge sort.
+2) Swapping elements in the arra should work. And access specific elements in the array should work.
 
-3) Changing sort method to Quick sort should sort the array with quick sort.
+3) When using a sorting algorithm, the proper array should be made for it.

@@ -1,4 +1,4 @@
-public class QuickSort externds SortAlgorithm{
+public class QuickSort extends SortAlgorithm {
 	public QuickSort(){
 		super("QuickSort");
 	}
@@ -23,7 +23,7 @@ public class QuickSort externds SortAlgorithm{
 		int midPoint = lowIndex + ((highIndex - lowIndex) / 2);
 		
 		//the element we are going to compare to in the array
-		int pivot = array[midPoint];
+		int pivot = array.getElem(midPoint);
 		
 		//Create variable to hold the first and last indexes in the array
 		int i = lowIndex;

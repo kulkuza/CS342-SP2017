@@ -41,6 +41,8 @@ public abstract class SortArray
 
     public int compare(int i, int j) {
         compareCounter++;
+        System.out.println("Compare: " + array[i] + " at index " + i +
+        						", " + array[j] + " at index " + j);
     	return array[i] - array[j];
     }
 
@@ -48,14 +50,15 @@ public abstract class SortArray
     	int temp = array[i];
     	array[i] = array[j];
     	array[j] = temp;
-
+    	System.out.println("Swap: " + array[i] + " at index " + i +
+    							", " + array[j] + " at index " + j);
         swapCounter++;
     }
 
     public boolean compareAndSwap(int i, int j) {
     	if (compare(i, j) > 0) {
     		swap(i, j);
-    		System.out.println("Updating GUI");
+    		System.out.println("Updating GUI\n");
     		ViDSortGUI gui = ViDSortGUI.getInstance();
     		gui.update(array);
     		try {
@@ -75,12 +78,18 @@ public abstract class SortArray
     		System.out.println("Algorithm is BubbleSort");
     		return new BubbleSort();
     	}
-    	else if (algorithm.equals("InsertionSort"))
+    	else if (algorithm.equals("InsertionSort")) {
+    		System.out.println("Algorithm is InsertionSort");
     		return new InsertionSort();
-    	else if (algorithm.equals("SelectionSort"))
+    	}
+    	else if (algorithm.equals("SelectionSort")) {
+    		System.out.println("Algorithm is SelectionSort");
     		return new SelectionSort();
-        else if (algorithm.equals("QuickSort"))
+    	}
+        else if (algorithm.equals("QuickSort")) {
+        	System.out.println("Algorithm is QuickSort");
             return new QuickSort();
+        }
     	else
     		return null;
     }

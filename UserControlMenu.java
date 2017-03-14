@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class UserControlMenu extends JPanel {
 
@@ -22,6 +25,11 @@ public class UserControlMenu extends JPanel {
 
     private final String[] arraySizes = {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50"};
     private JComboBox<String> sizeComboBox;
+    
+    private final int MAX_SPEED = 500;
+    private final int MIN_SPEED = 50;
+    private final int INIT_SPEED = 150;
+    private JSlider speedSlider = new JSlider(JSlider.HORIZONTAL, MIN_SPEED, MAX_SPEED, INIT_SPEED);
 
     private JButton toggleStartStopButton;
 
@@ -64,6 +72,22 @@ public class UserControlMenu extends JPanel {
                 ViDSortGUI.getInstance().setSelectedSize(size);
             }
         });
+        
+        speedSlider.setMajorTickSpacing(50);
+        speedSlider.setMinorTickSpacing(10);
+        speedSlider.setPaintTicks(true);
+        speedSlider.setPaintLabels(true);
+        speedSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                JSlider slider = (JSlider)e.getSource();
+
+                if (!slider.getValueIsAdjusting()) {
+                    int speed = (int)slider.getValue();
+                    ViDSortGUI.getInstance().setSelectedSpeed(speed);
+                }
+            }
+        });
 
         toggleStartStopButton = new JButton("START");
         toggleStartStopButton.addActionListener(new ActionListener() {
@@ -85,14 +109,18 @@ public class UserControlMenu extends JPanel {
         gridConstraints.gridy = 4;
         add(sizeComboBox, gridConstraints);
         gridConstraints.gridy = 5;
+        add(speedSlider, gridConstraints);
+        gridConstraints.gridy = 6;
         gridConstraints.weighty = 10;
         add(toggleStartStopButton, gridConstraints);
     }
     
     public void setDefaultSettings() {
-        ViDSortGUI.getInstance().setSelectedLeftAlgorithm(algorithmNames[0]); // set default
-        ViDSortGUI.getInstance().setSelectedRightAlgorithm(algorithmNames[0]); // set default
-        ViDSortGUI.getInstance().setSelectedSize(Integer.parseInt(arraySizes[0])); // set default
+        ViDSortGUI gui = ViDSortGUI.getInstance();
+        gui.setSelectedLeftAlgorithm(algorithmNames[0]); // set default
+        gui.setSelectedRightAlgorithm(algorithmNames[0]); // set default
+        gui.setSelectedSize(Integer.parseInt(arraySizes[0])); // set default
+        gui.setSelectedSpeed(INIT_SPEED);
     }
 
     public void resetMenuComponents() {

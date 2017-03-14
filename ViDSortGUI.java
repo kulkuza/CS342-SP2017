@@ -23,6 +23,7 @@ public class ViDSortGUI {
     private String selectedLeftAlgorithm;
     private String selectedRightAlgorithm;
     private int selectedSize;
+    private int selectedSpeed;
 
     public enum Mode {
         SINGLE_ALGORITHM_MODE,
@@ -120,6 +121,15 @@ public class ViDSortGUI {
     public void setSelectedSize(int size) {
         System.out.println("Setting array size to: " + String.valueOf(size));
         selectedSize = size;
+    }
+    
+    public int getSelectedSpeed() {
+        return selectedSpeed;
+    }
+    
+    public void setSelectedSpeed(int speed) {
+        System.out.println("Setting animation frame delay to: " + String.valueOf(speed));
+        selectedSpeed = speed;
     }
 
     public void update(int[] arr) {

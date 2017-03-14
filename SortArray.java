@@ -75,12 +75,18 @@ public abstract class SortArray
     		System.out.println("Algorithm is BubbleSort");
     		return new BubbleSort();
     	}
-    	else if (algorithm.equals("InsertionSort"))
+    	else if (algorithm.equals("InsertionSort")) {
+    		System.out.println("Algorithm is InsertionSort");
     		return new InsertionSort();
-    	else if (algorithm.equals("SelectionSort"))
+    	}
+    	else if (algorithm.equals("SelectionSort")) {
+    		System.out.println("Algorithm is SelectionSort");
     		return new SelectionSort();
-        else if (algorithm.equals("QuickSort"))
+    	}
+        else if (algorithm.equals("QuickSort")) {
+        	System.out.println("Algorithm is QuickSort");
             return new QuickSort();
+        }
     	else
     		return null;
     }

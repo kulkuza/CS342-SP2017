@@ -5,6 +5,8 @@ public abstract class SortArray
 	private SortAlgorithm algorithm;
     private int size;
     public int[] array;
+    private int swapCounter;
+    private int compareCounter;
 
     public SortArray() {
     	size = 0;
@@ -20,6 +22,8 @@ public abstract class SortArray
     	}
 
     	this.algorithm = selectAlgorithm(algorithm);
+        this.swapCounter = 0;
+        this.compareCounter = 0;
     }
 
     public int getSize() {
@@ -36,6 +40,7 @@ public abstract class SortArray
     }
 
     public int compare(int i, int j) {
+        compareCounter++;
     	return array[i] - array[j];
     }
 
@@ -43,6 +48,8 @@ public abstract class SortArray
     	int temp = array[i];
     	array[i] = array[j];
     	array[j] = temp;
+
+        swapCounter++;
     }
 
     public boolean compareAndSwap(int i, int j) {
@@ -102,6 +109,16 @@ public abstract class SortArray
             array[index] = newElem;
             return;
         }
+    }
+
+    public int getSwapCounter()
+    {
+        return swapCounter;
+    }
+
+    public int getCompareCounter()
+    {
+        return compareCounter;
     }
 
 }

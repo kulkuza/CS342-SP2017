@@ -88,6 +88,12 @@ public class UserControlMenu extends JPanel {
         gridConstraints.weighty = 10;
         add(toggleStartStopButton, gridConstraints);
     }
+    
+    public void setDefaultSettings() {
+        ViDSortGUI.getInstance().setSelectedLeftAlgorithm(algorithmNames[0]); // set default
+        ViDSortGUI.getInstance().setSelectedRightAlgorithm(algorithmNames[0]); // set default
+        ViDSortGUI.getInstance().setSelectedSize(Integer.parseInt(arraySizes[0])); // set default
+    }
 
     public void resetMenuComponents() {
         ViDSortGUI.Mode mode = ViDSortGUI.getInstance().getMode();

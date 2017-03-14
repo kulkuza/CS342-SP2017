@@ -38,11 +38,14 @@ public class ViDSortGUI {
     }
 
     public static ViDSortGUI getInstance() {
-        if (instance == null) {
+        if (instance == null)
             instance = new ViDSortGUI();
-        }
 
         return instance;
+    }
+    
+    public void setDefaultSettings() {
+        userControlMenu.setDefaultSettings();
     }
 
     private void setupPanels() {

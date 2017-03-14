@@ -121,4 +121,25 @@ public abstract class SortArray
         return compareCounter;
     }
 
+    public String getAlgorithm()
+    {
+        return algorithm.getName();
+    }
+
+    public SortArray copyArray(SortArray copyFrom)
+    {
+        int size = copyFrom.getSize();
+        String alg = copyFrom.getAlgorithm();
+
+        SortArray newArray = new VisualArray(size, alg);
+
+        int i;
+        for(i = 0; i < size; i++)
+        {
+            newArray.setElem(i, copyFrom.getElem(i));
+        }
+
+        return newArray;
+    }
+
 }

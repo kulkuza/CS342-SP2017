@@ -8,19 +8,59 @@ public class VisualArrayCanvas extends JPanel {
     private int height, width;
     private int maxBarHeight;
     private int[] arrayValues;
+    private int index1, index2; // indices to swap
     
     public VisualArrayCanvas() {
+        index1 = index2 = -1;
         setBackground(Color.white);
     }
     
+    public void setArray(int[] arr) {
+        arrayValues = arr;
+    }
+    
+    public void swapArrayValues(int index1, int index2) {
+        int temp = arrayValues[index1];
+        arrayValues[index1] = arrayValues[index2];
+        arrayValues[index2] = temp;
+    }
+    
+    /*
+     * deprecated:
+     * new drawArray() allows highlighting swapped values
+     */
     public void drawArray(int arr[]) {
-        Dimension arrayCanvasDimensions = getSize();
-        width = arrayCanvasDimensions.width;
-        height = arrayCanvasDimensions.height;
-        
+        getCanvasDimensions();
         maxBarHeight = height * 9 / 10; // 90% of canvas height
         
         arrayValues = arr;
+        
+        repaint();
+    }
+    
+    /*
+     * draw array without highlighting
+     */
+    public void drawArray() {
+        getCanvasDimensions();
+        maxBarHeight = height * 9 / 10; // 90% of canvas height
+        
+        this.index1 = -1;
+        this.index2 = -1;
+        
+        repaint();
+    }
+    
+    /*
+     * draw array with highlighting at indices
+     * index1 & index2
+     */
+    public void drawArray(int index1, int index2) {
+        getCanvasDimensions();
+        maxBarHeight = height * 9 / 10; // 90% of canvas height
+        
+        this.index1 = index1;
+        this.index2 = index2;
         
         repaint();
     }
@@ -50,7 +90,15 @@ public class VisualArrayCanvas extends JPanel {
                 break;
             }
             
-            graphics.drawRect(barX, barY, barWidth, barHeight);
+            if (index == index1) {
+                graphics.setColor(Color.BLUE);
+                graphics.fillRect(barX, barY, width - barX, barHeight);
+            } else if (index == index2) {
+                graphics.setColor(Color.RED);
+                graphics.fillRect(barX, barY, width - barX, barHeight);
+            } else {
+                graphics.drawRect(barX, barY, barWidth, barHeight);
+            }
             
             index++;
         }
@@ -66,5 +114,11 @@ public class VisualArrayCanvas extends JPanel {
         }
         
         return max;
+    }
+    
+    public void getCanvasDimensions() {
+        Dimension arrayCanvasDimensions = getSize();
+        width = arrayCanvasDimensions.width;
+        height = arrayCanvasDimensions.height;
     }
 }

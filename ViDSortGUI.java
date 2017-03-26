@@ -1,4 +1,5 @@
 
+import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;
 
 /*
@@ -135,9 +136,30 @@ public class ViDSortGUI {
     public void update(int[] arr) {
         rightVisualArrayCanvas.drawArray(arr);
     }
+    
+    public void setVisualArray(int[] arr) {
+        rightVisualArrayCanvas.setArray(arr);
+    }
 
+    public void update(int index1, int index2) {
+        rightVisualArrayCanvas.drawArray(index1, index2); // highlight indices to be swapped
+        delay();
+        rightVisualArrayCanvas.swapArrayValues(index1, index2);
+        rightVisualArrayCanvas.drawArray(index1, index2); // highlight swapped indices
+        delay();
+        rightVisualArrayCanvas.drawArray(); // draw VisualArray without highlighting
+    }
+    
     public void update(int[] leftArr, int[] rightArr) {
         leftVisualArrayCanvas.drawArray(leftArr);
         rightVisualArrayCanvas.drawArray(rightArr);
+    }
+    
+    public void delay() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(this.selectedSpeed);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
     }
 }

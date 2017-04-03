@@ -2,14 +2,6 @@
 import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;
 
-/*
- * Usage:
- * ViDSortGUI gui = ViDSortGUI.getInstance("Window Title Here");
- *
- * ...
- *
- * gui.updateVisualArray(arr); // draw representation of array
- */
 public class ViDSortGUI {
 
     private static ViDSortGUI instance; // singleton

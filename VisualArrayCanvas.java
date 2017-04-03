@@ -29,8 +29,11 @@ public class VisualArrayCanvas extends JPanel {
         arrayValues[index2] = temp;
     }
     
-    public void updateComparisonsAndSwaps(int comparisons, int swaps) {
+    public void updateComparisons(int comparisons) {
         numberOfComparisons = comparisons;
+    }
+    
+    public void updateSwaps(int swaps) {
         numberOfSwaps = swaps;
     }
     

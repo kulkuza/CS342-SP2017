@@ -147,6 +147,10 @@ public class ViDSortGUI {
         rightVisualArrayCanvas.drawArray(rightArr);
     }
     
+    public void updateComparisonsAndSwaps(int comparisons, int swaps) {
+        rightVisualArrayCanvas.updateComparisonsAndSwaps(comparisons, swaps);
+    }
+    
     public void delay() {
         try {
             TimeUnit.MILLISECONDS.sleep(this.selectedSpeed);

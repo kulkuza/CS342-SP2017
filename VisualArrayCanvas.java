@@ -29,6 +29,11 @@ public class VisualArrayCanvas extends JPanel {
         arrayValues[index2] = temp;
     }
     
+    public void updateComparisonsAndSwaps(int comparisons, int swaps) {
+        numberOfComparisons = comparisons;
+        numberOfSwaps = swaps;
+    }
+    
     /*
      * deprecated:
      * new drawArray() allows highlighting swapped values

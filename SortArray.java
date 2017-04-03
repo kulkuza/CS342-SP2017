@@ -61,8 +61,9 @@ public abstract class SortArray
     		System.out.println("Updating GUI\n");
     		ViDSortGUI gui = ViDSortGUI.getInstance();
     		gui.update(array);
+            int speed = gui.getSelectedSpeed();
     		try {
-    			TimeUnit.MILLISECONDS.sleep(300);
+    			TimeUnit.MILLISECONDS.sleep(speed);
     		} catch (InterruptedException e) {
     			System.out.println("Delay exception");
     		}

@@ -11,7 +11,7 @@ public class SelectionSort extends SortAlgorithm {
 				if (array.compare(j, minIndex) < 0)
 					minIndex = j;
 			}
-			array.swap(i, minIndex);
+			array.compareAndSwap(i, minIndex);
 		}
 	}
 }

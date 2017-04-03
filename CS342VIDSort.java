@@ -24,7 +24,6 @@ public class CS342VIDSort
 	public static void main (String[] args)
 	{
 		ViDSortGUI gui = ViDSortGUI.getInstance();
-		gui.setDefaultSettings();
         
         Timer tt = new Timer();
         tt.schedule(new TimerTask() {

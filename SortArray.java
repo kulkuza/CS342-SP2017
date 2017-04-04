@@ -10,6 +10,8 @@ public abstract class SortArray
 
     public SortArray() {
     	size = 0;
+    	swapCounter = 0;
+    	compareCounter = 0;
     	array = null;
     }
 
@@ -41,8 +43,16 @@ public abstract class SortArray
 
     public int compare(int i, int j) {
         compareCounter++;
+        ViDSortGUI gui = ViDSortGUI.getInstance();
+    	gui.updateComparisons(compareCounter);
         System.out.println("Compare: " + array[i] + " at index " + i +
         						", " + array[j] + " at index " + j);
+        int speed = gui.getSelectedSpeed();
+    		try {
+    			TimeUnit.MILLISECONDS.sleep(speed);
+    		} catch (InterruptedException e) {
+    			System.out.println("Delay exception");
+    		}
     	return array[i] - array[j];
     }
 
@@ -53,6 +63,8 @@ public abstract class SortArray
     	System.out.println("Swap: " + array[i] + " at index " + i +
     							", " + array[j] + " at index " + j);
         swapCounter++;
+        ViDSortGUI gui = ViDSortGUI.getInstance();
+    	gui.updateSwaps(swapCounter);
     }
 
     public boolean compareAndSwap(int i, int j) {
@@ -60,13 +72,8 @@ public abstract class SortArray
     		swap(i, j);
     		System.out.println("Updating GUI\n");
     		ViDSortGUI gui = ViDSortGUI.getInstance();
-    		gui.update(array);
-            int speed = gui.getSelectedSpeed();
-    		try {
-    			TimeUnit.MILLISECONDS.sleep(speed);
-    		} catch (InterruptedException e) {
-    			System.out.println("Delay exception");
-    		}
+    		gui.update(i,j);
+            
     		return true;
     	}
     	else {
@@ -97,6 +104,8 @@ public abstract class SortArray
 
     public void sort() {
     	System.out.println("Array is sorting");
+    	ViDSortGUI gui = ViDSortGUI.getInstance();
+    	gui.setVisualArray(array);
     	algorithm.sort(this);
     	System.out.println("Array is finished sorting");
 

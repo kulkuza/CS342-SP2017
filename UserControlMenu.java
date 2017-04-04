@@ -133,13 +133,13 @@ public class UserControlMenu extends JPanel {
         ViDSortGUI.Mode mode = ViDSortGUI.getInstance().getMode();
         GridBagConstraints gridConstraints = getDefaultGridConstraints();
 
+        removeComboBox(leftAlgorithmComboBox);
+        removeComboBox(rightAlgorithmComboBox);
+        
         if (mode == ViDSortGUI.Mode.SINGLE_ALGORITHM_MODE) {
-            removeComboBox(rightAlgorithmComboBox);
             gridConstraints.gridy = 1;
             add(rightAlgorithmComboBox, gridConstraints);
         } else if (mode == ViDSortGUI.Mode.COMPARISON_MODE) {
-            removeComboBox(leftAlgorithmComboBox);
-            removeComboBox(rightAlgorithmComboBox);
             gridConstraints.gridy = 1;
             add(leftAlgorithmComboBox, gridConstraints);
             gridConstraints.gridy = 2;

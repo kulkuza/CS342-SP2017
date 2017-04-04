@@ -1,9 +1,11 @@
 # CS342-SP2017-VIDSort
+
 Group 2
 
 Members: Michael Mei, Jim Mei, Luis Garibay
+___
 
-Wizard of Oz Demo: 3/14, 3/16
+<strike>Wizard of Oz Demo: 3/14, 3/16</strike>
 
 Alpha Release: 4/04, 4/06
 

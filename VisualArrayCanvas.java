@@ -12,6 +12,7 @@ public class VisualArrayCanvas extends JPanel {
     private int index1, index2; // indices to swap
     private int numberOfComparisons, numberOfSwaps;
     private Color colorViDSortGrey = new Color(150, 150, 150);
+    private Color highlightColor;
     
     public VisualArrayCanvas() {
         index1 = index2 = -1;
@@ -77,6 +78,20 @@ public class VisualArrayCanvas extends JPanel {
         this.index1 = index1;
         this.index2 = index2;
         
+        highlightColor = new Color(60, 60, 255);
+        
+        repaint();
+    }
+    
+    public void drawArrayWithCompareHighlighting(int index1, int index2) {
+        getCanvasDimensions();
+        maxBarHeight = height * 9 / 10; // 90% of canvas height
+        
+        this.index1 = index1;
+        this.index2 = index2;
+        
+        highlightColor = new Color(200, 200, 255);
+        
         repaint();
     }
     
@@ -101,37 +116,29 @@ public class VisualArrayCanvas extends JPanel {
             int barY = height - barHeight;
             
             if (index == arrayValues.length - 1) {
-                if (index == index1) {
-                    graphics.setColor(Color.BLUE);
-                } else if (index == index2) {
-                    graphics.setColor(Color.RED);
-                } else {
-                    graphics.drawRect(barX, barY, width - barX, barHeight);
-                    break;
+                if (index == index1 || index == index2) {
+                    graphics.setColor(highlightColor);
+                    graphics.fillRect(barX, barY, width - barX, barHeight);
+                    graphics.setColor(colorViDSortGrey);
                 }
                 
-                graphics.fillRect(barX, barY, width - barX, barHeight);
+                graphics.drawRect(barX, barY, width - barX, barHeight);
+                                
                 break;
             }
             
-            if (index == index1) {
-                graphics.setColor(Color.BLUE);
+            if (index == index1 || index == index2) {
+                graphics.setColor(highlightColor);
                 graphics.fillRect(barX, barY, barWidth, barHeight);
                 graphics.setColor(colorViDSortGrey);
-            } else if (index == index2) {
-                graphics.setColor(Color.RED);
-                graphics.fillRect(barX, barY, barWidth, barHeight);
-                graphics.setColor(colorViDSortGrey);
-            } else {
-                graphics.drawRect(barX, barY, barWidth, barHeight);
             }
+                
+            graphics.drawRect(barX, barY, barWidth, barHeight);
             
             index++;
         }
         
         FontMetrics metrics = graphics.getFontMetrics();
-        
-        graphics.setColor(colorViDSortGrey);
         
         String stringOfComparisonCount = "# Comparisons: " + String.valueOf(numberOfComparisons);
         int x = (width - metrics.stringWidth(stringOfComparisonCount)) / 2;

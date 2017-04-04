@@ -137,7 +137,9 @@ public class ViDSortGUI {
         rightVisualArrayCanvas.drawArray(index1, index2); // highlight indices to be swapped
         delay();
         rightVisualArrayCanvas.swapArrayValues(index1, index2);
-        rightVisualArrayCanvas.drawArray(index1, index2); // highlight swapped indices
+
+        // indices switched for proper highlighting
+        rightVisualArrayCanvas.drawArray(index2, index1); // highlight swapped indices
         delay();
         rightVisualArrayCanvas.drawArray(); // draw VisualArray without highlighting
     }

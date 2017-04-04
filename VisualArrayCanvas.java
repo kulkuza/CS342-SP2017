@@ -11,6 +11,7 @@ public class VisualArrayCanvas extends JPanel {
     private int[] arrayValues;
     private int index1, index2; // indices to swap
     private int numberOfComparisons, numberOfSwaps;
+    private Color colorViDSortGrey = new Color(150, 150, 150);
     
     public VisualArrayCanvas() {
         index1 = index2 = -1;
@@ -21,6 +22,8 @@ public class VisualArrayCanvas extends JPanel {
     
     public void setArray(int[] arr) {
         arrayValues = arr.clone();
+        for (int i = 0; i < arrayValues.length; i++)
+            arrayValues[i]++; // minimum value of 1
     }
     
     public void swapArrayValues(int index1, int index2) {
@@ -88,7 +91,7 @@ public class VisualArrayCanvas extends JPanel {
         int changeRatio = maxBarHeight / maxValueInArray;
         int barWidth = width / arrayValues.length;
         
-        graphics.setColor(new Color(150, 150, 150));
+        graphics.setColor(colorViDSortGrey);
         
         int index = 0;
         while (true) {
@@ -98,16 +101,27 @@ public class VisualArrayCanvas extends JPanel {
             int barY = height - barHeight;
             
             if (index == arrayValues.length - 1) {
-                graphics.drawRect(barX, barY, width - barX, barHeight);
+                if (index == index1) {
+                    graphics.setColor(Color.BLUE);
+                } else if (index == index2) {
+                    graphics.setColor(Color.RED);
+                } else {
+                    graphics.drawRect(barX, barY, width - barX, barHeight);
+                    break;
+                }
+                
+                graphics.fillRect(barX, barY, width - barX, barHeight);
                 break;
             }
             
             if (index == index1) {
                 graphics.setColor(Color.BLUE);
                 graphics.fillRect(barX, barY, barWidth, barHeight);
+                graphics.setColor(colorViDSortGrey);
             } else if (index == index2) {
                 graphics.setColor(Color.RED);
                 graphics.fillRect(barX, barY, barWidth, barHeight);
+                graphics.setColor(colorViDSortGrey);
             } else {
                 graphics.drawRect(barX, barY, barWidth, barHeight);
             }
@@ -116,6 +130,8 @@ public class VisualArrayCanvas extends JPanel {
         }
         
         FontMetrics metrics = graphics.getFontMetrics();
+        
+        graphics.setColor(colorViDSortGrey);
         
         String stringOfComparisonCount = "# Comparisons: " + String.valueOf(numberOfComparisons);
         int x = (width - metrics.stringWidth(stringOfComparisonCount)) / 2;

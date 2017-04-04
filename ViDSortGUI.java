@@ -125,6 +125,7 @@ public class ViDSortGUI {
         selectedSpeed = speed;
     }
 
+    // deprecated
     public void update(int[] arr) {
         rightVisualArrayCanvas.drawArray(arr);
     }
@@ -132,7 +133,8 @@ public class ViDSortGUI {
     public void setVisualArray(int[] arr) {
         rightVisualArrayCanvas.setArray(arr);
     }
-
+    
+    // deprecated
     public void update(int index1, int index2) {
         rightVisualArrayCanvas.drawArray(index1, index2); // highlight indices to be swapped
         delay();
@@ -143,17 +145,34 @@ public class ViDSortGUI {
         delay();
         rightVisualArrayCanvas.drawArray(); // draw VisualArray without highlighting
     }
-    
-    public void update(int[] leftArr, int[] rightArr) {
-        leftVisualArrayCanvas.drawArray(leftArr);
-        rightVisualArrayCanvas.drawArray(rightArr);
+
+    public void updateSwap(int index1, int index2) {
+        rightVisualArrayCanvas.swapArrayValues(index1, index2);
+
+        // indices switched for proper highlighting
+        rightVisualArrayCanvas.drawArray(index2, index1); // highlight swapped indices
+        delay();
+        rightVisualArrayCanvas.drawArray(); // draw VisualArray without highlighting
     }
     
+    public void highlightCompare(int index1, int index2) {
+        rightVisualArrayCanvas.drawArray(index1, index2); // highlight indices to be swapped
+        delay();
+    }
+    
+    // deprecated
     public void updateComparisons(int comparisons) {
         rightVisualArrayCanvas.updateComparisons(comparisons);
     }
+    public void updateComparisonCount(int comparisons) {
+        rightVisualArrayCanvas.updateComparisons(comparisons);
+    }
     
+    // deprecated
     public void updateSwaps(int swaps) {
+        rightVisualArrayCanvas.updateSwaps(swaps);
+    }
+    public void updateSwapCount(int swaps) {
         rightVisualArrayCanvas.updateSwaps(swaps);
     }
     

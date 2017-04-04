@@ -44,7 +44,8 @@ public abstract class SortArray
     public int compare(int i, int j) {
         compareCounter++;
         ViDSortGUI gui = ViDSortGUI.getInstance();
-    	gui.updateComparisons(compareCounter);
+    	gui.updateComparisonCount(compareCounter);
+        gui.highlightCompare(i, j);
         System.out.println("Compare: " + array[i] + " at index " + i +
         						", " + array[j] + " at index " + j);
         int speed = gui.getSelectedSpeed();
@@ -64,7 +65,7 @@ public abstract class SortArray
     							", " + array[j] + " at index " + j);
         swapCounter++;
         ViDSortGUI gui = ViDSortGUI.getInstance();
-    	gui.updateSwaps(swapCounter);
+    	gui.updateSwapCount(swapCounter);
     }
 
     public boolean compareAndSwap(int i, int j) {
@@ -72,7 +73,7 @@ public abstract class SortArray
     		swap(i, j);
     		System.out.println("Updating GUI\n");
     		ViDSortGUI gui = ViDSortGUI.getInstance();
-    		gui.update(i,j);
+    		gui.updateSwap(i,j);
             
     		return true;
     	}
@@ -96,6 +97,10 @@ public abstract class SortArray
     	}
         else if (algorithm.equals("QuickSort")) {
         	System.out.println("Algorithm is QuickSort");
+            return new QuickSort();
+        }
+        else if (algorithm.equals("MergeSort")) {
+            System.out.println("Algorithm is MergeSort");
             return new QuickSort();
         }
     	else

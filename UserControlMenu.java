@@ -40,7 +40,9 @@ public class UserControlMenu extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JComboBox cb = (JComboBox)e.getSource();
-                ViDSortGUI.getInstance().setSelectedLeftAlgorithm((String)cb.getSelectedItem());
+                String alg = (String)cb.getSelectedItem();
+                ViDSortGUI.getInstance().setSelectedLeftAlgorithm(alg);
+                System.out.println("left algorithm: " + alg);
             }
         });
 
@@ -50,7 +52,9 @@ public class UserControlMenu extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JComboBox cb = (JComboBox)e.getSource();
-                ViDSortGUI.getInstance().setSelectedRightAlgorithm((String)cb.getSelectedItem());
+                String alg = (String)cb.getSelectedItem();
+                ViDSortGUI.getInstance().setSelectedRightAlgorithm(alg);
+                System.out.println("right algorithm: " + alg);
             }
         });
 

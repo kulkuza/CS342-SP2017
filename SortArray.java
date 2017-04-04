@@ -49,7 +49,7 @@ public abstract class SortArray
         						", " + array[j] + " at index " + j);
         int speed = gui.getSelectedSpeed();
     		try {
-    			TimeUnit.MILLISECONDS.sleep(speed);
+    			Thread.sleep(speed);
     		} catch (InterruptedException e) {
     			System.out.println("Delay exception");
     		}

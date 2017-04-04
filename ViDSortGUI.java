@@ -156,7 +156,7 @@ public class ViDSortGUI {
     }
     
     public void highlightCompare(int index1, int index2) {
-        rightVisualArrayCanvas.drawArray(index1, index2); // highlight indices to be swapped
+        rightVisualArrayCanvas.drawArrayWithCompareHighlighting(index1, index2); // highlight indices to be swapped
         delay();
     }
     

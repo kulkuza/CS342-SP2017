@@ -39,7 +39,7 @@ public class QuickSort extends SortAlgorithm {
 				j--;
 			
 			if (i <= j){
-				array.swap(i,j);
+				array.compareAndSwap(i,j);
 				i++;
 				j--;
 			}

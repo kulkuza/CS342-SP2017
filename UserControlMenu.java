@@ -173,10 +173,7 @@ public class UserControlMenu extends JPanel {
     
     private void initializeSpeedComponents() {
         speedLabel = new JLabel("Speed", JLabel.CENTER);
-        speedSlider.setMajorTickSpacing(50);
-        speedSlider.setMinorTickSpacing(10);
-        speedSlider.setPaintTicks(true);
-        speedSlider.setPaintLabels(true);
+        speedSlider.setInverted(true);
         speedSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {

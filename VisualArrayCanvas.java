@@ -78,7 +78,7 @@ public class VisualArrayCanvas extends JPanel {
         this.index1 = index1;
         this.index2 = index2;
         
-        highlightColor = new Color(60, 60, 255);
+        highlightColor = new Color(255, 120, 120);
         
         repaint();
     }

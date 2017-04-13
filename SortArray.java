@@ -30,6 +30,20 @@ public abstract class SortArray
         this.compareCounter = 0;
     }
 
+    public SortArray(int size, String algorithm, int windowFrame) {
+    	this.size = size;
+    	this.window = windowFrame;
+    	array = new int[size];
+
+    	for(int i = 0; i < this.size; i++) {
+    		array[i] = (int)(Math.random() * this.size);
+    	}
+
+    	this.algorithm = selectAlgorithm(algorithm);
+        this.swapCounter = 0;
+        this.compareCounter = 0;
+    }
+
     public int getSize() {
         return size;
     }

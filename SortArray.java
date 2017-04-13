@@ -7,12 +7,14 @@ public abstract class SortArray
     public int[] array;
     private int swapCounter;
     private int compareCounter;
+    private int window;
 
     public SortArray() {
     	size = 0;
     	swapCounter = 0;
     	compareCounter = 0;
     	array = null;
+    	window = 1;
     }
 
     public SortArray(int size, String algorithm) {
@@ -164,6 +166,14 @@ public abstract class SortArray
         }
 
         return newArray;
+    }
+
+    public void changeWindow()
+    {
+    	if(this.window == 0)
+    		window = 1;
+    	else
+    		window = 0;
     }
 
 }

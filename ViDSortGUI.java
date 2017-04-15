@@ -133,6 +133,12 @@ public class ViDSortGUI {
     public void setVisualArray(int[] arr) {
         rightVisualArrayCanvas.setArray(arr);
     }
+    public void setVisualArray(int[] arr, boolean canvas) {
+        if (canvas)
+            rightVisualArrayCanvas.setArray(arr);
+        else
+            leftVisualArrayCanvas.setArray(arr);
+    }
     
     // deprecated
     public void update(int index1, int index2) {
@@ -154,9 +160,31 @@ public class ViDSortGUI {
         delay();
         rightVisualArrayCanvas.drawArray(); // draw VisualArray without highlighting
     }
+    public void updateSwap(int index1, int index2, boolean canvas) {
+        VisualArrayCanvas c;
+        
+        if (canvas)
+            c = rightVisualArrayCanvas;
+        else
+            c = leftVisualArrayCanvas;
+        
+        c.swapArrayValues(index1, index2);
+
+        // indices switched for proper highlighting
+        c.drawArray(index2, index1); // highlight swapped indices
+        delay();
+        c.drawArray(); // draw VisualArray without highlighting
+    }
     
     public void highlightCompare(int index1, int index2) {
         rightVisualArrayCanvas.drawArrayWithCompareHighlighting(index1, index2); // highlight indices to be swapped
+        delay();
+    }
+    public void highlightCompare(int index1, int index2, boolean canvas) {
+        if (canvas)
+            rightVisualArrayCanvas.drawArrayWithCompareHighlighting(index1, index2); // highlight indices to be swapped
+        else
+            leftVisualArrayCanvas.drawArrayWithCompareHighlighting(index1, index2);
         delay();
     }
     
@@ -167,6 +195,12 @@ public class ViDSortGUI {
     public void updateComparisonCount(int comparisons) {
         rightVisualArrayCanvas.updateComparisons(comparisons);
     }
+    public void updateComparisonCount(int comparisons, boolean canvas) {
+        if (canvas)
+            rightVisualArrayCanvas.updateComparisons(comparisons);
+        else
+            leftVisualArrayCanvas.updateComparisons(comparisons);
+    }
     
     // deprecated
     public void updateSwaps(int swaps) {
@@ -174,6 +208,12 @@ public class ViDSortGUI {
     }
     public void updateSwapCount(int swaps) {
         rightVisualArrayCanvas.updateSwaps(swaps);
+    }
+    public void updateSwapCount(int swaps, boolean canvas) {
+        if (canvas)
+            rightVisualArrayCanvas.updateSwaps(swaps);
+        else
+            leftVisualArrayCanvas.updateSwaps(swaps);
     }
     
     public void delay() {

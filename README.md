@@ -7,7 +7,7 @@ ___
 
 <strike>Wizard of Oz Demo: 3/14, 3/16</strike>
 
-Alpha Release: 4/04, 4/06
+<strike>Alpha Release: 4/04, 4/06</strike>
 
 Beta Release: 4/25
 

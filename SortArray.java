@@ -7,14 +7,14 @@ public abstract class SortArray
     public int[] array;
     private int swapCounter;
     private int compareCounter;
-    private int window;
+    private boolean window;	//true -> right, false -> left
 
     public SortArray() {
     	size = 0;
     	swapCounter = 0;
     	compareCounter = 0;
     	array = null;
-    	window = 1;
+    	window = true;
     }
 
     public SortArray(int size, String algorithm) {
@@ -30,7 +30,7 @@ public abstract class SortArray
         this.compareCounter = 0;
     }
 
-    public SortArray(int size, String algorithm, int windowFrame) {
+    public SortArray(int size, String algorithm, boolean windowFrame) {
     	this.size = size;
     	this.window = windowFrame;
     	array = new int[size];
@@ -60,16 +60,10 @@ public abstract class SortArray
     public int compare(int i, int j) {
         compareCounter++;
         ViDSortGUI gui = ViDSortGUI.getInstance();
-    	gui.updateComparisonCount(compareCounter);
-        gui.highlightCompare(i, j);
+    	gui.updateComparisonCount(compareCounter, window);
+        gui.highlightCompare(i, j, window);
         System.out.println("Compare: " + array[i] + " at index " + i +
         						", " + array[j] + " at index " + j);
-        int speed = gui.getSelectedSpeed();
-    		try {
-    			Thread.sleep(speed);
-    		} catch (InterruptedException e) {
-    			System.out.println("Delay exception");
-    		}
     	return array[i] - array[j];
     }
 
@@ -81,7 +75,7 @@ public abstract class SortArray
     							", " + array[j] + " at index " + j);
         swapCounter++;
         ViDSortGUI gui = ViDSortGUI.getInstance();
-    	gui.updateSwapCount(swapCounter);
+    	gui.updateSwapCount(swapCounter, window);
     }
 
     public boolean compareAndSwap(int i, int j) {
@@ -126,7 +120,7 @@ public abstract class SortArray
     public void sort() {
     	System.out.println("Array is sorting");
     	ViDSortGUI gui = ViDSortGUI.getInstance();
-    	gui.setVisualArray(array);
+    	gui.setVisualArray(array, window);
     	algorithm.sort(this);
     	System.out.println("Array is finished sorting");
 
@@ -171,7 +165,7 @@ public abstract class SortArray
         int size = copyFrom.getSize();
         String alg = copyFrom.getAlgorithm();
 
-        SortArray newArray = new VisualArray(size, alg);
+        SortArray newArray = new VisualArray(size, alg, window);
 
         int i;
         for(i = 0; i < size; i++)
@@ -180,14 +174,6 @@ public abstract class SortArray
         }
 
         return newArray;
-    }
-
-    public void changeWindow()
-    {
-    	if(this.window == 0)
-    		window = 1;
-    	else
-    		window = 0;
     }
 
 }

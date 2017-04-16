@@ -32,7 +32,7 @@ public class CS342VIDSort
             public void run() {
                 if (gui.isRunningSort()) {
                     int size = gui.getSelectedSize();
-                    SortArray testVisualArray = new VisualArray(size, gui.getSelectedRightAlgorithm());
+                    SortArray testVisualArray = new VisualArray(size, gui.getSelectedRightAlgorithm(), true);
                     
                     testVisualArray.sort();
                     

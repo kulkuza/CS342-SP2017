@@ -76,15 +76,13 @@ public abstract class SortArray
         swapCounter++;
         ViDSortGUI gui = ViDSortGUI.getInstance();
     	gui.updateSwapCount(swapCounter, window);
+    	gui.updateSwap(i,j, window);
     }
 
     public boolean compareAndSwap(int i, int j) {
     	if (compare(i, j) > 0) {
     		swap(i, j);
     		System.out.println("Updating GUI\n");
-    		ViDSortGUI gui = ViDSortGUI.getInstance();
-    		gui.updateSwap(i,j, window);
-            
     		return true;
     	}
     	else {
@@ -121,6 +119,8 @@ public abstract class SortArray
     	System.out.println("Array is sorting");
     	ViDSortGUI gui = ViDSortGUI.getInstance();
     	gui.setVisualArray(array, window);
+    	gui.updateSwapCount(swapCounter, window);
+    	gui.updateComparisonCount(compareCounter, window);
     	algorithm.sort(this);
     	System.out.println("Array is finished sorting");
 

@@ -83,7 +83,7 @@ public abstract class SortArray
     		swap(i, j);
     		System.out.println("Updating GUI\n");
     		ViDSortGUI gui = ViDSortGUI.getInstance();
-    		gui.updateSwap(i,j);
+    		gui.updateSwap(i,j, window);
             
     		return true;
     	}

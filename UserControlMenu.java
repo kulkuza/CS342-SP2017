@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Hashtable;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -173,7 +174,14 @@ public class UserControlMenu extends JPanel {
     
     private void initializeSpeedComponents() {
         speedLabel = new JLabel("Speed", JLabel.CENTER);
+        speedSlider.setPaintLabels(true);
         speedSlider.setInverted(true);
+        
+        Hashtable<Integer, JLabel> table = new Hashtable<Integer, JLabel>();
+        table.put(MIN_SPEED, new JLabel("fast"));
+        table.put(MAX_SPEED, new JLabel("slow"));
+        speedSlider.setLabelTable(table);
+        
         speedSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {

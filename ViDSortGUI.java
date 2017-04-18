@@ -81,7 +81,14 @@ public class ViDSortGUI {
     }
 
     public void toggleRunningSort() {
-        runningSort = !runningSort;
+        if (runningSort) {
+            runningSort = false;
+            userControlMenu.enableCompareCheckBox();
+        } else {
+            runningSort = true;
+            userControlMenu.disableCompareCheckBox();
+        }
+        
         userControlMenu.toggleStartStopText();
     }
 

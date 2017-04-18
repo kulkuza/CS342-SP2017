@@ -88,6 +88,13 @@ public class UserControlMenu extends JPanel {
         }
     }
     
+    public void  enableCompareCheckBox() {
+        compareCheckBox.setEnabled(true);
+    }
+    public void  disableCompareCheckBox() {
+        compareCheckBox.setEnabled(false);
+    }
+    
     public void setDefaultSettings() {
         ViDSortGUI gui = ViDSortGUI.getInstance();
         gui.setSelectedLeftAlgorithm(algorithmNames[0]); // set default

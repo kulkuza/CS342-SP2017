@@ -16,20 +16,25 @@ public class CS342VIDSort
                 if (gui.isRunningSort()) {
                     int size = gui.getSelectedSize();
                     if (gui.getMode() == ViDSortGUI.Mode.COMPARISON_MODE) {     //create 2 threads to run both sorts simultaneously
+                        
+                        
+                        SortArray rightVisualArray = new VisualArray(size, gui.getSelectedRightAlgorithm(), true);
+                        SortArray leftVisualArray = new VisualArray(rightVisualArray);
+                        leftVisualArray.setAlgorithm(gui.getSelectedLeftAlgorithm());
+                        leftVisualArray.setWindow(false);
+
                         Thread threadRight = new Thread() {
                             public void run() {
-                                SortArray testVisualArray = new VisualArray(size, gui.getSelectedRightAlgorithm(), true);
-                                testVisualArray.sort();
+                                rightVisualArray.sort();
                             }
                         };
 
                         Thread threadLeft = new Thread() {
                             public void run() {
-                                SortArray testVisualArray = new VisualArray(size, gui.getSelectedLeftAlgorithm(), false);
-                                testVisualArray.sort();
+                                leftVisualArray.sort();
                             }
                         };
-                        
+
                         threadRight.start();
                         threadLeft.start();
 

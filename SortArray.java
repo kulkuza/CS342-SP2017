@@ -44,6 +44,35 @@ public abstract class SortArray
         this.compareCounter = 0;
     }
 
+    public SortArray(SortArray copyFrom) {
+        this.size = copyFrom.getSize();
+        this.algorithm = copyFrom.getAlgorithm();
+        this.window = copyFrom.getWindow();
+        this.array = new int[copyFrom.getSize()];
+
+        this.swapCounter = 0;
+        this.compareCounter = 0;
+
+        int i;
+        for(i = 0; i < size; i++)
+        {
+            this.setElem(i, copyFrom.getElem(i));
+        }
+
+    }
+
+    public void setAlgorithm(String algorithm) {
+        this.algorithm = selectAlgorithm(algorithm);
+    }
+
+    public void setWindow(boolean window) {
+        this.window = window;
+    }
+
+    public boolean getWindow() {
+        return window;
+    }
+
     public int getSize() {
         return size;
     }
@@ -155,25 +184,11 @@ public abstract class SortArray
         return compareCounter;
     }
 
-    public String getAlgorithm()
+    public SortAlgorithm getAlgorithm()
     {
-        return algorithm.getName();
+        return algorithm;
     }
 
-    public SortArray copyArray(SortArray copyFrom)
-    {
-        int size = copyFrom.getSize();
-        String alg = copyFrom.getAlgorithm();
-
-        SortArray newArray = new VisualArray(size, alg, window);
-
-        int i;
-        for(i = 0; i < size; i++)
-        {
-            newArray.setElem(i, copyFrom.getElem(i));
-        }
-
-        return newArray;
-    }
+    
 
 }

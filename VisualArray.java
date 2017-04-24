@@ -4,5 +4,9 @@ public class VisualArray extends SortArray {
 		super(size, algorithm, window);
     }
 
+    public VisualArray(SortArray array) {
+    	super(array);
+    }
+
 
 }

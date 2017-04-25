@@ -143,12 +143,16 @@ public class VisualArrayCanvas extends JPanel {
         String stringOfComparisonCount = "# Comparisons: " + String.valueOf(numberOfComparisons);
         int x = (width - metrics.stringWidth(stringOfComparisonCount)) / 2;
         int y = metrics.getHeight();
+        graphics.setColor(new Color(120, 120, 255));
         graphics.drawString(stringOfComparisonCount, x, y);
+        graphics.setColor(colorViDSortGrey);
         
         String stringOfSwapCount = "# Swaps: " + String.valueOf(numberOfSwaps);
         x = (width - metrics.stringWidth(stringOfSwapCount)) / 2;
         y = metrics.getHeight() * 2;
+        graphics.setColor(new Color(255, 120, 120));
         graphics.drawString(stringOfSwapCount, x, y);
+        graphics.setColor(colorViDSortGrey);
     }
     
     private int maxValueIn(int[] arr) {

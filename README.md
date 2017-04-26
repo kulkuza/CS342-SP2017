@@ -9,6 +9,6 @@ ___
 
 <strike>Alpha Release: 4/04, 4/06</strike>
 
-Beta Release: 4/25
+<strike>Beta Release: 4/25</strike>
 
 Public Demos: 4/27

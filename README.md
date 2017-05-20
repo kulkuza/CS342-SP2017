@@ -3,6 +3,7 @@
 Group 2
 
 Members: Michael Mei, Jim Mei, Luis Garibay
+WorkBook: https://docs.google.com/document/d/19eQsAMkUuo3IydVnf3E_PVWL7HGMvPvmWrbSYFFbgsQ/edit?usp=sharing
 ___
 
 <strike>Wizard of Oz Demo: 3/14, 3/16</strike>
@@ -11,4 +12,4 @@ ___
 
 <strike>Beta Release: 4/25</strike>
 
-Public Demos: 4/27
+<strike>Public Demos: 4/27</strike>

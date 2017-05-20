@@ -3,6 +3,7 @@
 Group 2
 
 Members: Michael Mei, Jim Mei, Luis Garibay
+
 WorkBook: https://docs.google.com/document/d/19eQsAMkUuo3IydVnf3E_PVWL7HGMvPvmWrbSYFFbgsQ/edit?usp=sharing
 ___
 
